@@ -14,13 +14,33 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+
 import tech.getarrays.produtomanager.model.Produto;
 
-public class SheetLoad {
 
-	LinkedList<Produto> stock = new LinkedList<Produto>();
+
+public class SheetLoad {
 	
-	public void carrega(String adress) {
+	
+	public LinkedList<Produto> stock = new LinkedList<Produto>();
+	
+	public String path;
+	
+	public SheetLoad(String uri) {
+		this.path=uri;
+		carrega(path);
+		//this.stock = stock;
+		//System.out.println(stock);
+	}
+
+
+	private Produto articuloTemp = null;
+	private String temporal1 = null;
+	private Double temporal2 = null;
+	
+	
+
+	public UploadSQL carrega(String adress) {
 		FileInputStream fisPlanilha = null;			
 		try {
 			
@@ -40,9 +60,7 @@ public class SheetLoad {
 			Iterator<Row> rowIterator = sheet.iterator();
 			
 			int i = 0;	
-			Produto articuloTemp = null;
-			String temporal1 = null;
-			Double temporal2 = null;
+			
 			
 			while(rowIterator.hasNext()) {
 				
@@ -97,7 +115,7 @@ public class SheetLoad {
 							articuloTemp.setDescricao(temporal1);
 							break;
 						case 4:
-							System.out.println(temporal2);
+							System.out.println(temporal2+"->here");
 							articuloTemp.setPreco(String.valueOf(temporal2));
 							break;
 						}
@@ -114,8 +132,11 @@ public class SheetLoad {
 				i++;
 				System.out.println("B->"+i);
 				}
-			System.out.println(stock.get(2).getNome());
-
+			System.out.println(stock.get(2).getNome());	
+		
+			
+		//tratemento de erros
+		
 		}catch(FileNotFoundException ex){
 			
 			Logger.getLogger(SheetLoad.class.getName()).log(Level.SEVERE, null, ex);
@@ -131,5 +152,14 @@ public class SheetLoad {
 				Logger.getLogger(SheetLoad.class.getName()).log(Level.SEVERE, null, ex);
 			}
 		}
+		
+		
+		
+		
+		return  new UploadSQL(stock);
 	}
+	
+	
+	
+	
 }

@@ -23,19 +23,25 @@ public class ProdutoService {
 
    
 
-    public List<Produto> findAllEmployees() {
+    public List<Produto> findAllProdutos() {
         return produtoRepo.findAll();
     }
 
-    public Produto updateEmployee(Produto produto) {
+    public Produto updateProduto(Produto produto) {
         return produtoRepo.save(produto);
     }
 
-    public Produto findEmployeeById(Long id) {
-        return produtoRepo.findEmployeeById(id);
+    public Produto findProdutoById(Long id) {
+        return produtoRepo.findProdutoById(id);
     }
 
-    public void deleteEmployee(Long id){
-        produtoRepo.deleteEmployeeById(id);
+    public void deleteProduto(Long id){
+        produtoRepo.deleteProdutoById(id);
     }
+    
+
+    public Produto addProduto(Produto produto) {
+    	return produtoRepo.save(produto);
+    }
+
 }

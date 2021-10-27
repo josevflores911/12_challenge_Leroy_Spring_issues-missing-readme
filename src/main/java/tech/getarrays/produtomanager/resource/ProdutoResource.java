@@ -19,28 +19,28 @@ public class ProdutoResource {
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<Produto>> getAllEmployees () {
-        List<Produto> produtos = produtoService.findAllEmployees();
+    public ResponseEntity<List<Produto>> getAllProdutos () {
+        List<Produto> produtos = produtoService.findAllProdutos();
         return new ResponseEntity<>(produtos, HttpStatus.OK);
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Produto> getEmployeeById (@PathVariable("id") Long id) {
-        Produto produto = produtoService.findEmployeeById(id);
+    public ResponseEntity<Produto> getProdutoById (@PathVariable("id") Long id) {
+        Produto produto = produtoService.findProdutoById(id);
         return new ResponseEntity<>(produto, HttpStatus.OK);
     }
 
     
 
     @PutMapping("/update")
-    public ResponseEntity<Produto> updateEmployee(@RequestBody Produto produto) {
-        Produto updateEmployee = produtoService.updateEmployee(produto);
-        return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
+    public ResponseEntity<Produto> updateProduto(@RequestBody Produto produto) {
+        Produto updateProduto = produtoService.updateProduto(produto);
+        return new ResponseEntity<>(updateProduto, HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id) {
-        produtoService.deleteEmployee(id);
+    public ResponseEntity<?> deleteProduto(@PathVariable("id") Long id) {
+        produtoService.deleteProduto(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }

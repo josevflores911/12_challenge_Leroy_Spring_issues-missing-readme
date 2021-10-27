@@ -7,10 +7,16 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import background.Conexion;
 import background.PanelAdress;
+import background.UploadSQL;
+import lombok.NoArgsConstructor;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Arrays;
 
+import java.sql.PreparedStatement;
 
 @SpringBootApplication
 public class ProdutomanagerApplication {
@@ -18,8 +24,8 @@ public class ProdutomanagerApplication {
     
 	public static void main(String[] args) {
 		SpringApplication.run(ProdutomanagerApplication.class, args);
-		
-		PanelAdress arquivo = new PanelAdress();
+				
+		PanelAdress arquivo = new PanelAdress();		
 	}
 
 	@Bean
