@@ -1,5 +1,3 @@
-
-=======
 # Avaliacao_Leroy
 # produtomanager
 App to manage produtos
