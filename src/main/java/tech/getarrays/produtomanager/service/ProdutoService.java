@@ -14,7 +14,8 @@ import java.util.List;
 @Service
 @Transactional
 public class ProdutoService {
-    private final ProdutoRepo produtoRepo;
+	//private final ProdutoRepo produtoRepo;
+	private ProdutoRepo produtoRepo;
 
     @Autowired
     public ProdutoService(ProdutoRepo produtoRepo) {
@@ -34,14 +35,19 @@ public class ProdutoService {
     public Produto findProdutoById(Long id) {
         return produtoRepo.findProdutoById(id);
     }
+    
+    
+    public List<Produto> getProdutoByNome(String nome){
+        return produtoRepo.findProdutoByNome(nome);
+    }
 
     public void deleteProduto(Long id){
         produtoRepo.deleteProdutoById(id);
     }
     
 
-    public Produto addProduto(Produto produto) {
+    /*public Produto addProduto(Produto produto) {
     	return produtoRepo.save(produto);
-    }
+    }*/
 
 }

@@ -1,6 +1,7 @@
 package background;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.LinkedList;
 
 import tech.getarrays.produtomanager.model.Produto;
@@ -19,7 +20,7 @@ public class UploadSQL {
 	
 
 	public void accion(LinkedList<Produto> stock) {
-		//conexion clase adicional
+		
 		int rs = 0;
 		
 		
@@ -43,7 +44,15 @@ public class UploadSQL {
 			}catch(Exception e) {
 				System.out.println("erro ao insertar valor");	
 				
-			} /*cerrar la conexion*/
+			}
+			finally{
+				try {
+					Conexion.getConexion().close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}/*cerrar la conexion*/
+			}
 		}
 	}
 	

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import tech.getarrays.produtomanager.model.Produto;
+import tech.getarrays.produtomanager.repo.ProdutoRepo;
 import tech.getarrays.produtomanager.service.ProdutoService;
 
 
@@ -25,6 +26,7 @@ public class PanelAdress {
 	
 
 	public void construi() {
+		
 		Scanner keyboard= new Scanner(System.in);
 		
 		System.out.println("Give a path with products_teste.xlsx");		

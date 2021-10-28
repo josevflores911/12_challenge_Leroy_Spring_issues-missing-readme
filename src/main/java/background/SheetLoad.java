@@ -85,11 +85,13 @@ public class SheetLoad {
 					case Cell.CELL_TYPE_STRING:
 						//System.out.println("Tipo String " + cell.getStringCellValue());
 						temporal1=cell.getStringCellValue();
+						
 						break;
 						
 					case Cell.CELL_TYPE_NUMERIC:
 						//System.out.println("Tipo Numeric " + cell.getNumericCellValue());
 						temporal2= cell.getNumericCellValue();
+											
 						break;						
 					case Cell.CELL_TYPE_FORMULA:
 						//System.out.println("Tipo Formula " + cell.getCellFormula());
@@ -115,8 +117,8 @@ public class SheetLoad {
 							articuloTemp.setDescricao(temporal1);
 							break;
 						case 4:
-							System.out.println(temporal2+"->here");
-							articuloTemp.setPreco(String.valueOf(temporal2));
+							System.out.println(temporal1+"->here");
+							articuloTemp.setPreco(temporal1);
 							break;
 						}
 					}

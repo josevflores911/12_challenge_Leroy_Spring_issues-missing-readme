@@ -29,8 +29,13 @@ public class ProdutoResource {
         Produto produto = produtoService.findProdutoById(id);
         return new ResponseEntity<>(produto, HttpStatus.OK);
     }
-
+ 
     
+    @GetMapping("/produtoByNome/{nome}")    
+    public ResponseEntity<List<Produto>> getProdutoByNome(@PathVariable("nome") String nome) {
+    	List<Produto> produtos = produtoService.getProdutoByNome(nome);
+        return new ResponseEntity<>(produtos, HttpStatus.OK);
+    }
 
     @PutMapping("/update")
     public ResponseEntity<Produto> updateProduto(@RequestBody Produto produto) {
