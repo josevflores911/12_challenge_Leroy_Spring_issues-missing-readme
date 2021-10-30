@@ -4,10 +4,23 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * classe conexion responsavel por vincular a base de dados mysql com a API
+ * para enviar um objeto para o schema storeLeroy
+ */
 public class Conexion {
 
+    /**
+     * metodo que realiza a conexao local com mysql
+     *
+     * @return con
+     */
     public static Connection getConexion() {
 
+        /**
+         * instacia null da clase conexao que recebe os parametros url, usuario, senha
+         * para cada usuario
+         */
         Connection con = null;
 
         try {
@@ -18,7 +31,6 @@ public class Conexion {
 
             con = DriverManager.getConnection(url, usuario, senha);
         } catch (ClassNotFoundException | SQLException e) {
-
             e.printStackTrace();
         }
 

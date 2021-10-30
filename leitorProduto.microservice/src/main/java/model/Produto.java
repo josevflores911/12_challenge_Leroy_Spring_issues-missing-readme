@@ -8,63 +8,42 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 
+/**
+ * Classe que gera o modelo que sera enviado na tavela de dados
+ *
+ * aplicacao de anotacoes Lombok para a constroccao de getters e setters e
+ * constructores com todos os argumentos e  sem argumentos assim como
+ * builder para a instanciacao de novos objetos
+ *
+ * a interface Serializable permite a um objeto ser transformado,
+ * em uma cadeia de bytes e desta forma pode ser manipulado de maneira mais fácil
+ *
+ * @author Jose Viera
+ * @version 1.1
+ *
+ */
+
 @Entity
 @Table(name = "produto")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-
 public class Produto implements Serializable {
 
+    /**
+     *   declaraçao das variaveis que posee a base de dados
+     *   se aplicaram anotacoes spring de autoincremento,id e no NULL para o id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private Long id;
     private String nome;
     private String taxa;
     private String descricao;
     private String preco;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTaxa() {
-        return taxa;
-    }
-
-    public void setTaxa(String taxa) {
-        this.taxa = taxa;
-    }
-
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public String getPreco() {
-        return preco;
-    }
-
-    public void setPreco(String preco) {
-        this.preco = preco;
-    }
 
     @Override
     public String toString() {

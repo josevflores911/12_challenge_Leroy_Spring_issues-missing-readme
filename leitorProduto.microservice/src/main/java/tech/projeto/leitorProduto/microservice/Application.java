@@ -15,6 +15,10 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+		/**
+		 * instanciaçao da clase pathReader responsavel por ler a ruta onde encontra-se
+		 * o arquivo product_teste.xlsx
+		 */
 		PathReader arquivo = new PathReader();
 	}
 

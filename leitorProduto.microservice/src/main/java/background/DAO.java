@@ -6,20 +6,37 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.LinkedList;
 
+/**
+ * classe DAO (data access object) responsavel pela persistencia dos dados presentes no arquivo
+ * de leitura  carregado na clase SheetLoad
+ */
 public class DAO {
 
+    /**arreglo que contem todos os produtos almacenados no arquivo
+     *
+     */
     LinkedList<Produto> fila;
     //Conexion con = new Conexion();
 
+    /**
+     * constructor da clase DAO que chama o metodo upload responsavel pela persistencia
+     */
     public DAO(LinkedList<Produto> stock) {
         this.fila = stock;
-        accion(stock);
+        upload(stock);
     }
 
-    public void accion(LinkedList<Produto> stock) {
+    /**
+     * metodo sem retorno, encarregado pela persistencia de dados toma um elemento statico
+     * da classe conexion e inserta uma Query determinada pela propiedad do tipo string sql
+     * faz um varrido no linkedlist com os produtos e asigna os getter na declaracao da query sql
+     * finalmente fecha a conecao do tipo estatico
+     *
+     * @param stock
+     */
+    public void upload(LinkedList<Produto> stock) {
 
         int rs = 0;
-
 
         String sql ="INSERT INTO produto (id, descricao, nome, preco, taxa) VALUES (?, ?, ?, ?, ?)";
 

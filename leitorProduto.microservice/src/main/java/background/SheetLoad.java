@@ -15,26 +15,71 @@ import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *  classe com as livrarias de apache org que contem todos os componentes necesarios para
+ *  fazer a interpretacao dos arquivos com extensao .xlsx e .xls  a classes interpretan e varrem
+ *  or arquivo por filas, columnas e celulas assim como cada uma das folhas que tem o arquivo
+ *  e preciso indicar o endereco onde se encontra o arquivo e com este as subclases descompoen o arquivo
+ */
 public class SheetLoad {
 
-
+    /**
+     * propiedades necesarias para descarregar os dados do arquivo com extensao .xlsx
+     * e almacenar na base de dados,
+     *
+     * linkedlist almacena todas as instancias de produtos encontradas
+     *
+     * path variavel que serve de parametro para o metodo de carrega
+     *
+     * articuloTemp, temporal1, temporal 2, variaveis auxiliares que toman os valores
+     * do tipo string, double, Produto para almacenar nas distintas posicoes do array
+     */
     public LinkedList<Produto> stock = new LinkedList<>();
 
     public String path;
 
+    private Produto articuloTemp = null;
+    private String temporal1 = null;
+    private Double temporal2 = null;
+
+    /**
+     * constructo que toma o endereco (path) e aplica como parametro do metodo
+     * @param uri
+     */
     public SheetLoad(String uri) {
         this.path=uri;
         carrega(path);
 
     }
 
-
-    private Produto articuloTemp = null;
-    private String temporal1 = null;
-    private Double temporal2 = null;
-
-
-
+    /**
+     * este metodo de apache.org contem todas as carateristicas necesarias para a leitura de todas as
+     * celulas presentes no arquivo
+     *
+     * inicialmente procura o arquivo no endereco local
+     * cria um workbook = planilha toda com todas as abas
+     * recuperamos apenas a primeira aba ou primeira planilha
+     * retorna todas as linhas da planilha 0
+     *
+     * realizamos duas iteracoes
+     * a primeira:
+     * recebe cada linha da planilha
+     * pega todas as celulas desta linha
+     * varremos todas as celulas da linha atual
+     *
+     * na segunda iteracao interna da primeira(loop inside loop)
+     *
+     * criamos uma celula que le o valor que pode ser do tipo string, double, formula(string)...
+     *
+     * o valor achado para cada celula e asignado as propriedades da instancia produto do linkedlist
+     * mediante um switch que contem os getters e setter para a instancia
+     *
+     * feita a leitura total retorna uma clase DAO com o arreglo com todos as instancias de produto
+     *
+     * @param adress
+     *
+     * @return DAO(stock)
+     */
     public DAO carrega(String adress) {
         FileInputStream fisPlanilha = null;
         try {
@@ -149,6 +194,7 @@ public class SheetLoad {
                 Logger.getLogger(SheetLoad.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
         return  new DAO(stock);
     }
 
