@@ -2,7 +2,7 @@
 # produtos manager
 App to manage produtos
 
-ainda falta testar varios casos, podem se adicionar varias melhoras 
+ainda falta testar varios casos, podem se adicionar varias melhoras, configurar as duas bases de dados MySQL e H2 para ser usadas altenativamente entre aplicacao e testes 
 
 Arquivos e detalhes do projeto de leitura e procesamento de arquivo xlsx
 
