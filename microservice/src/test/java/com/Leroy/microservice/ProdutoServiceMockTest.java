@@ -43,7 +43,7 @@ public class ProdutoServiceMockTest {
 
     @Test
     public void whenValidGetID_ThenReturnProduct(){
-        Produto found = productService.getProduto(1L);
+        Produto found = productService.getProdutoById(1L);
 
         Assertions.assertThat(found.getNome()).isEqualTo("computer");
 

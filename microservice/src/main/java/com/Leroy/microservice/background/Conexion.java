@@ -21,7 +21,7 @@ public class Conexion {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/storeLeroy?createDatabaseIfNotExist=true&serverTimezone=UTC";
+            String url = "jdbc:mysql://localhost:3306/storeLeroy";
             String usuario ="root";
             String senha = "2812";
 
