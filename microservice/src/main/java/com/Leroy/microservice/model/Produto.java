@@ -35,7 +35,7 @@ public class Produto {
      *   se aplicaram anotacoes spring de autoincremento,id e no NULL para o id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
 

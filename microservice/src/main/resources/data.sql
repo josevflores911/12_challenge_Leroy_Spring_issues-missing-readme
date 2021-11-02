@@ -1,4 +1,6 @@
 
+delete from produto;
+
 INSERT INTO produto (id, nome, taxa, descricao, preco)
 VALUES (1, 'a', 'a', 'a', 'a');
 

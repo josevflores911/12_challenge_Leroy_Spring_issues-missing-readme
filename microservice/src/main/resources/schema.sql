@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS produto;
 
 CREATE TABLE produto(
